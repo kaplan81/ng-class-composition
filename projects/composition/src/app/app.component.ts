@@ -4,11 +4,7 @@ import { Component } from '@angular/core';
   selector: 'cmp-root',
   standalone: true,
   imports: [],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    
-  `,
+  template: ` <h1>Welcome to {{ title }}!</h1> `,
   styles: [],
 })
 export class AppComponent {
