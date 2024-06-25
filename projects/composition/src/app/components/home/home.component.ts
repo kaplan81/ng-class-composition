@@ -27,14 +27,15 @@ export class HomeComponent extends TitleMixin(
       ].toUpperCase()} component was destroyed`
     )
   ),
-  RoutedComponents[RoutedComponents.contact].toUpperCase()
+  RoutedComponents[RoutedComponents.home].toUpperCase(),
+  true
 ) {
   #routerCountService = inject(RouterCountService);
   navigationId: Signal<number> = this.#routerCountService.getStateProp('count');
 
   goToContact(): void {
     this.#routerCountService.increaseCount(() =>
-      console.log(`We are navigating to ${(this as any).title}`)
+      console.log(`We are navigating from ${(this as any).title}`)
     );
   }
 }
