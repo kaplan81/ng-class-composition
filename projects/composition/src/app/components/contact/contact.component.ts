@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { RouterCountService } from '../../services/router-count/router-count.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,4 +9,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './contact.component.scss',
   templateUrl: './contact.component.html',
 })
-export class ContactComponent {}
+export class ContactComponent {
+  #routerCountService = inject(RouterCountService);
+
+  goToHome(): void {
+    this.#routerCountService.increaseCount(() =>
+      console.log('We are navigating to HOME')
+    );
+  }
+}

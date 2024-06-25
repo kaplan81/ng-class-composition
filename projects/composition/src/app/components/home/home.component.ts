@@ -1,12 +1,13 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  WritableSignal,
-  signal,
+  Signal,
+  inject,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DestroyMixin } from '../../mixins/destroy.mixin';
 import { emptyBase } from '../../mixins/empty';
+import { RouterCountService } from '../../services/router-count/router-count.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,5 +19,12 @@ import { emptyBase } from '../../mixins/empty';
 export class HomeComponent extends DestroyMixin(emptyBase, () =>
   console.log('Home component was destroyed')
 ) {
-  navigationId: WritableSignal<number> = signal<number>(0);
+  #routerCountService = inject(RouterCountService);
+  navigationId: Signal<number> = this.#routerCountService.getStateProp('count');
+
+  goToContact(): void {
+    this.#routerCountService.increaseCount(() =>
+      console.log('We are navigating to CONTACT')
+    );
+  }
 }
