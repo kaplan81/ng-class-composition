@@ -7,6 +7,7 @@ export function DestroyMixin<B extends Constructor>(
 ): Constructor & B {
   return class extends Base {
     #destroyRef = inject(DestroyRef);
+
     constructor(...args: any[]) {
       super();
       this.#destroyRef.onDestroy(callback);

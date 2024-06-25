@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { emptyBase } from './mixins/empty';
+import { TitleMixin } from './mixins/title.mixin';
+import { TitledComponent } from './models/title.model';
 
+export interface AppComponent extends TitledComponent {}
 @Component({
   selector: 'cmp-root',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterOutlet],
   template: `
     <div class="container" style="width: 75%; margin: 0 auto;">
+      <h1>{{ this.title }}</h1>
       <br />
       <router-outlet></router-outlet>
     </div>
   `,
-  styles: [],
+  styles: `
+    h1 {
+      text-align: center
+    }
+  `,
 })
-export class AppComponent {}
+export class AppComponent extends TitleMixin(
+  emptyBase,
+  'Testing NG Composition'
+) {}
