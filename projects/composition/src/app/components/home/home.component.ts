@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  WritableSignal,
+  signal,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DestroyMixin } from '../../mixins/destroy.mixin';
+import { emptyBase } from '../../mixins/empty';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,4 +15,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.scss',
   templateUrl: './home.component.html',
 })
-export class HomeComponent {}
+export class HomeComponent extends DestroyMixin(emptyBase, () =>
+  console.log('Home component was destroyed')
+) {
+  navigationId: WritableSignal<number> = signal<number>(0);
+}
