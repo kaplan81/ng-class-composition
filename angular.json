@@ -44,9 +44,7 @@
             "outputPath": "dist/composition",
             "index": "projects/composition/src/index.html",
             "browser": "projects/composition/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": [],
             "tsConfig": "projects/composition/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -55,9 +53,7 @@
                 "input": "projects/composition/public"
               }
             ],
-            "styles": [
-              "projects/composition/src/styles.scss"
-            ],
+            "styles": ["projects/composition/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
