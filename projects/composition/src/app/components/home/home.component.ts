@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RoutedComponents } from '../../enums/routed.enum';
-import { DestroyMixin } from '../../mixins/destroy.mixin';
 import { emptyBase } from '../../mixins/empty';
 import { TitleMixin } from '../../mixins/title.mixin';
 import { RouterCountService } from '../../services/router-count/router-count.service';
@@ -20,13 +19,7 @@ import { RouterCountService } from '../../services/router-count/router-count.ser
   templateUrl: './home.component.html',
 })
 export class HomeComponent extends TitleMixin(
-  DestroyMixin(emptyBase, () =>
-    console.log(
-      `${RoutedComponents[
-        RoutedComponents.home
-      ].toUpperCase()} component was destroyed`
-    )
-  ),
+  emptyBase,
   RoutedComponents[RoutedComponents.home].toUpperCase()
   // true
 ) {

@@ -1,14 +1,16 @@
+$line-height: 45px;
+
 h2 {
   text-align: center;
 }
 
 p {
   display: flex;
-  line-height: 45px;
+  line-height: $line-height;
   font-size: 20px;
   color: orange;
   span {
     display: block;
-    font-size: 45px;
+    font-size: $line-height;
   }
 }
