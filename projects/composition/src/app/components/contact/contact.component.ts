@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink],
   standalone: true,
-  styleUrl: './home.component.scss',
-  templateUrl: './home.component.html',
+  styleUrl: './contact.component.scss',
+  templateUrl: './contact.component.html',
 })
-export class HomeComponent {}
+export class ContactComponent {}
