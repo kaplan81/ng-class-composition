@@ -24,8 +24,8 @@ export class ContactComponent extends TitleMixin(
       ].toUpperCase()} component was destroyed`
     )
   ),
-  RoutedComponents[RoutedComponents.contact].toUpperCase(),
-  true
+  RoutedComponents[RoutedComponents.contact].toUpperCase()
+  // true
 ) {
   #routerCountService = inject(RouterCountService);
 

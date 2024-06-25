@@ -27,8 +27,8 @@ export class HomeComponent extends TitleMixin(
       ].toUpperCase()} component was destroyed`
     )
   ),
-  RoutedComponents[RoutedComponents.home].toUpperCase(),
-  true
+  RoutedComponents[RoutedComponents.home].toUpperCase()
+  // true
 ) {
   #routerCountService = inject(RouterCountService);
   navigationId: Signal<number> = this.#routerCountService.getStateProp('count');
